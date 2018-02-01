@@ -10,7 +10,6 @@ module.exports = {
       } else if(req.cookies.idToken !== undefined){
         idToken = req.cookies.idToken;
       }
-      idToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2Vkcy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NTg3M2M1NWJiOTRhNGQ3N2MxZjk2MzQ4IiwiYXVkIjoiWTRtUlFXd0NrOHM3NXMwVkxJRE9PVFBGOTJTWmxFVDQiLCJpYXQiOjE1MTc1MDUyMzYsImV4cCI6MTUxNzU0MTIzNn0.3i3DCHItvVGJZt3EL8yphvau8fyYcWBC4scBTCrKCEs';
       console.log(config.apiDomain);
       if(idToken === null){
         res.send('Access denied1');
@@ -28,6 +27,7 @@ module.exports = {
           if (err) {
             res.send('Access denied2');
           } else if(response.statusCode !== 200){
+            console.log(config);
             console.log(response.statusCode);
             res.send('Access denied3');
           }

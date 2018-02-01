@@ -24,7 +24,6 @@ if(environment === 'development') {
 }
 
 const s3 = new AWS.S3({accessKeyId: config.aws.accessKey, secretAccessKey:config.aws.secretKey, region: config.aws.region});
-const apiEndpoint = process.env.API_DOMAIN;
 
 app.set('port', port);
 app.set('config', config);
