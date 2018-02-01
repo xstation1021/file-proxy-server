@@ -14,11 +14,12 @@ if(environment === 'development') {
   config = JSON.parse(fs.readFileSync("config.json"));
 } else {
   config = {
+      apiDomain: process.env.API_DOMAIN,
       aws: {
         accessKey: process.env.AWS_ACCESS_KEY,
         secretKey: process.env.AWS_SECRET_KEY,
         region: process.env.AWS_REGION
-      }
+      },
   };
 }
 
@@ -26,6 +27,7 @@ const s3 = new AWS.S3({accessKeyId: config.aws.accessKey, secretAccessKey:config
 const apiEndpoint = process.env.API_DOMAIN;
 
 app.set('port', port);
+app.set('config', config);
 app.use(cookieParser())
 
 app.get('/', (req, res) => {

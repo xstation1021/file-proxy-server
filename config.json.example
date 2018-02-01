@@ -2,6 +2,7 @@
     "aws": {
         "accessKey": "",
         "secretKey": "",
-        "resion": ""
+        "resion": "",
+        "API_URL" : ""
     }
 }
